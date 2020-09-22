@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+.App {
+}
+
+.Wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "header header header"
+        ". content ."
+        ". content ."
+        "footer footer footer";
+    height: 100vh;
+    background-image: url('./background.png');
+}
+
+.TimeCards {
+    grid-area: content;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    grid-template-rows: repeat(1, 2fr);
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 10px;
+}
