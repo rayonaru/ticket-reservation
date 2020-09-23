@@ -23,7 +23,7 @@ namespace server.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Game>> GetAllGames()
         {
-            var gameItems = _repository.GetAllGames();
+            var gameItems = _repository.GetTest();
 
             return Ok(gameItems);
         }

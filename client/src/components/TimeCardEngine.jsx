@@ -15,6 +15,15 @@ const TimeCardEngine = () => {
       grid-gap: 10px;
     `;
 
+    const getGames = async(q) => {
+        const apiRes = await fetch('http://localhost:5000/api/games');
+        const resJson = await apiRes.json();
+
+        console.log(resJson.id);
+    };
+
+    getGames();
+
     return (
         <TimeCards>
           <TimeCard/>

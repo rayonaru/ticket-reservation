@@ -32,5 +32,23 @@ namespace server.Data
         {
             return _context.Games.FirstOrDefault(p => p.Id == id);
         }
+
+        public IEnumerable<test> GetTest()
+        {
+            var data = from game in _context.Games
+                           join team1 in _context.Teams 
+                                on game.TeamsFK1 equals team1.Id
+                           join team2 in _context.Teams 
+                                on game.TeamsFK2 equals team2.Id
+                       select new test 
+                       { 
+                           id = game.Id, 
+                           name1 = team1.Name, 
+                           name2 = team2.Name,
+                           timestap = game.Timestamp
+                       };
+
+            return data.ToList();
+        }
     }
 }

@@ -22,5 +22,10 @@ namespace server.Data
 
             return games;
         }
+
+        public IEnumerable<test> GetTest()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

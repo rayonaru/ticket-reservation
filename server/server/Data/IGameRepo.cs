@@ -8,5 +8,6 @@ namespace server.Data
     {
         IEnumerable<Game> GetAllGames();
         Game GetGameById(Guid id);
+        IEnumerable<test> GetTest();
     }
 }
