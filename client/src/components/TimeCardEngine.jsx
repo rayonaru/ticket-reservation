@@ -1,40 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
+import { BallBeat } from 'react-pure-loaders';
 import TimeCard from './TimeCard/TimeCard.jsx';
 
 const TimeCardEngine = () => {
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [games, setGames] = useState([]);
+
+    async function fetchData() {
+        setLoading(true);
+        const res = await fetch('https://localhost:5001/api/games');
+        res.json()
+           .then(res => setGames(res))
+           .then(setLoading(false))
+           .catch(err => setError(err));
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const TimeCards = styled.div`
       grid-area: content;
       align-self: center;
       justify-self: center;
       display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(${games.length - Math.trunc(games.length /2)}, 1fr);
       grid-gap: 10px;
     `;
 
-    const getGames = async(q) => {
-        const apiRes = await fetch('http://localhost:5000/api/games');
-        const resJson = await apiRes.json();
-
-        console.log(resJson.id);
-    };
-
-    getGames();
 
     return (
         <TimeCards>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
-          <TimeCard/>
+          { !loading ? (
+              games.map(item => (
+                  <TimeCard key={item.id} name1={item.name1} name2={item.name2} timestamp={item.timestamp}></TimeCard>
+              ))
+          ) : loading ? (
+              <div style={{color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div>
+                  Loading...
+                </div>
+              </div>
+          ) : null}
         </TimeCards>
     );
 };

@@ -17,14 +17,16 @@ namespace server
 
         public IConfiguration Configuration { get; }
 
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TicketReservContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DevConnection")));
-
+            
             services.AddControllers();
 
-            //services.AddScoped<IGameRepo, MockGameRepo>();
             services.AddScoped<IGameRepo, SqlGameRepo>();
+
+            services.AddCors(opt => opt.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod()));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -39,6 +41,8 @@ namespace server
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {

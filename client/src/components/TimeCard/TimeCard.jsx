@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const TimeCard = (props) => {
+const TimeCard = ({timestamp, name1, name2}) => {
 
     const Card = styled.div`
       height: 150px;
@@ -20,9 +20,9 @@ const TimeCard = (props) => {
 
     return (
         <Card>
-          <div className='Day'>Monday</div>
-          <div className='Day'>Naruto vs Sasuke</div>
-          <div className='Time'>17:00 PM</div>
+          <div>Game</div>
+          <div>{name1} vs {name2}</div>
+          <div>{timestamp}</div>
         </Card>
     );
 };

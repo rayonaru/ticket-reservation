@@ -45,7 +45,7 @@ namespace server.Data
                            id = game.Id, 
                            name1 = team1.Name, 
                            name2 = team2.Name,
-                           timestap = game.Timestamp
+                           timestamp = game.Timestamp
                        };
 
             return data.ToList();

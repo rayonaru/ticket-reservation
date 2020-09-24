@@ -10,6 +10,6 @@ namespace server.Models
         public Guid id { get; set; }
         public String name1 { get; set; }
         public String name2 { get; set; }
-        public DateTime timestap { get; set; }
+        public DateTime timestamp { get; set; }
     }
 }
