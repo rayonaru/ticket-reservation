@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
-import { BallBeat } from 'react-pure-loaders';
 import TimeCard from './TimeCard/TimeCard.jsx';
 
 const TimeCardEngine = () => {
 
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState();
     const [games, setGames] = useState([]);
 
     async function fetchData() {
@@ -32,10 +31,9 @@ const TimeCardEngine = () => {
       grid-gap: 10px;
     `;
 
-
     return (
         <TimeCards>
-          { !loading ? (
+          { !loading && !error ? (
               games.map(item => (
                   <TimeCard key={item.id} name1={item.name1} name2={item.name2} timestamp={item.timestamp}></TimeCard>
               ))
@@ -43,6 +41,12 @@ const TimeCardEngine = () => {
               <div style={{color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div>
                   Loading...
+                </div>
+              </div>
+          ) : !loading && error ? (
+              <div style={{color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div>
+                  Error...
                 </div>
               </div>
           ) : null}
