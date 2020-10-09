@@ -30,7 +30,7 @@ const Header = (props) => {
           <Header>
             <Title>
               <StyledLink to='/'>
-                Ticket Reserv Web Service
+                Ticket Reserve Web Service
               </StyledLink>
             </Title>
           </Header>

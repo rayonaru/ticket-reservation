@@ -32,7 +32,7 @@ const Start = (props) => {
         <Start>
           <Link to='/home'>
             <Button>
-              Reserv now
+              Reserve now
             </Button>
           </Link>
         </Start>
