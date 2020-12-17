@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
-.App {
-}
-
 .Wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -13,5 +10,5 @@
         ". content ."
         "footer footer footer";
     height: 100vh;
-    background-image: url('./background.png');
+    background-image: url('/img/background.png');
 }

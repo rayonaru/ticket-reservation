@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
-import TimeCard from './TimeCard/TimeCard.jsx';
+import GameCard from './GameCard/GameCard.jsx';
 
-const TimeCardEngine = () => {
+const GameCardEngine = () => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
@@ -22,7 +22,7 @@ const TimeCardEngine = () => {
         fetchData();
     }, []);
 
-    const TimeCards = styled.div`
+    const GameCards = styled.div`
       grid-area: content;
       align-self: center;
       justify-self: center;
@@ -32,10 +32,10 @@ const TimeCardEngine = () => {
     `;
 
     return (
-        <TimeCards>
+        <GameCards>
           { !loading && !error ? (
               games.map(item => (
-                  <TimeCard key={item.id} name1={item.name1} name2={item.name2} timestamp={item.timestamp}></TimeCard>
+                  <GameCard key={item.id} name1={item.name1} name2={item.name2} timestamp={item.timestamp}></GameCard>
               ))
           ) : loading ? (
               <div style={{color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -50,8 +50,8 @@ const TimeCardEngine = () => {
                 </div>
               </div>
           ) : null}
-        </TimeCards>
+        </GameCards>
     );
 };
 
-export default TimeCardEngine;
+export default GameCardEngine;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const TimeCard = ({timestamp, name1, name2}) => {
+const GameCard = ({timestamp, name1, name2}) => {
 
     const Card = styled.div`
       height: 150px;
@@ -27,4 +27,4 @@ const TimeCard = ({timestamp, name1, name2}) => {
     );
 };
 
-export default TimeCard;
+export default GameCard;

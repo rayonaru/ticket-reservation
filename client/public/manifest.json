@@ -1,6 +1,6 @@
 {
-  "short_name": "TicketReserv",
-  "name": "Ticket reserved web service",
+  "short_name": "TRS",
+  "name": "Ticket reserve web service",
   "icons": [
     {
       "src": "favicon.ico",
