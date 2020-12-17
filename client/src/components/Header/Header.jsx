@@ -7,7 +7,7 @@ const Header = (props) => {
     const Header = styled.div`
       grid-area: header;
       text-align: center;
-      background: url(./img/prism.png);
+      background: url(/img/prism.png);
     `;
 
     const Title = styled.div`

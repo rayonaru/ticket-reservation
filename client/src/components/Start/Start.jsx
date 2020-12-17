@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-
 const Start = (props) => {
 
     const Start = styled.div`
@@ -19,7 +18,6 @@ const Start = (props) => {
       outline: none;
       padding: 15px 32px;
       text-align: center;
-      text-decoration: none;
       font-size: 20px;
       border-radius: 10px;
       transition: 0.2s;
@@ -30,7 +28,7 @@ const Start = (props) => {
 
     return (
         <Start>
-          <Link to='/home'>
+          <Link to='/games'>
             <Button>
               Reserve now
             </Button>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 import GameCard from './GameCard/GameCard.jsx';
+import { Link } from 'react-router-dom';
 
 const GameCardEngine = () => {
 
@@ -35,7 +36,9 @@ const GameCardEngine = () => {
         <GameCards>
           { !loading && !error ? (
               games.map(item => (
-                  <GameCard key={item.id} name1={item.name1} name2={item.name2} timestamp={item.timestamp}></GameCard>
+                <Link key={item.id} to={`/games/${item.id}`}>
+                  <GameCard name1={item.name1} name2={item.name2} timestamp={item.timestamp}></GameCard>
+                </Link>
               ))
           ) : loading ? (
               <div style={{color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
